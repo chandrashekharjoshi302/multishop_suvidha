@@ -11,6 +11,17 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+// main page
+
+// cart page
+
+// checkout page
+
+// contact page
+
+// details page
+
+// shop page
 
 
 
