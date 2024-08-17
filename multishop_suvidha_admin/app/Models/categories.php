@@ -9,6 +9,8 @@ class categories extends Model
 {
     protected $fillable = [
         'name',
+        'slug',
+        'image',
         'parent_id'
     ];
 

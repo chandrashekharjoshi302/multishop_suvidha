@@ -14,11 +14,19 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable();
-            $table->decimal('price', 10, 2);
+            $table->string('slug')->unique();
             $table->unsignedBigInteger('category_id');
-            $table->integer('stock')->default(0);
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->unsignedBigInteger('brand_id');
+            $table->text('short_description');
+            $table->text('description');
+            $table->string('image')->nullable();
+            $table->text('gallery_images')->nullable();
+            $table->decimal('regular_price', 8, 2);
+            $table->decimal('sale_price', 8, 2);
+            $table->string('SKU');
+            $table->integer('quantity');
+            $table->enum('stock_status', ['instock', 'outofstock']);
+            $table->boolean('featured')->default(0);
             $table->timestamps();
         });
     }

@@ -29,10 +29,21 @@
                     </li>
                 </ul>
             </div>
+            @if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
             <!-- new-category -->
             <div class="wg-box">
-                <form class="form-new-product form-style-1" action="#" method="POST"
-                    enctype="multipart/form-data">
+                <form class="form-new-product form-style-1"  method="POST"
+                    enctype="multipart/form-data"   action="{{route('add_category_data')}}">
+                    @csrf
                     <fieldset class="name">
                         <div class="body-title">Category Name <span class="tf-color-1">*</span>
                         </div>

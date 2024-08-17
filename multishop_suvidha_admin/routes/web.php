@@ -94,4 +94,7 @@ Route::middleware(['auth', AuthAdmin::class])->group(function () {
     // product page
 
     Route::post('/product', [AdminController::class, 'add_product_data'])->name('add_product_data');
+    Route::post('/category/data-save', [AdminController::class, 'add_category_data'])->name('add_category_data');
+
+    Route::post('/admin/brands/data-save', [AdminController::class, 'brands_data_save'])->name('brands_data_save');
 });
