@@ -108,6 +108,21 @@
                     <a class="text-body mr-3" href="">FAQs</a>
                 </div>
             </div>
+
+            {{-- @guest
+
+            <a class="header-tools__item" href="{{route('login')}}">
+            <button class="dropdown-item" type="button">Sign in</button>
+        </a>
+            @else   
+            <a class="header-tools__item" href="{{ Auth::user()->role=='admin' ? route('admin.index') : route('user.index')}}">
+                <span class="pr-6px">{{Auth::user()->name}}</span>
+            <button class="dropdown-item" type="button">Sign up</button>
+        </a>
+            @endif --}}
+
+          
+            
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
                     <div class="btn-group">
@@ -115,24 +130,7 @@
                         <div class="dropdown-menu dropdown-menu-right">
 
 
-                            {{-- @guest
-                            <div class="header-tools__item hover-container">
-                                <a class="header-tools__item" href="{{route('login')}}">
-                                  <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="#icon_user" />
-                                  </svg>
-                                </a>
-                              </div>
-                            @else                    
-                              <div class="header-tools__item hover-container">
-                                <a class="header-tools__item" href="{{ Auth::user()->utype=='ADM' ? route('admin.index') : route('user.index')}}">
-                                  <span class="pr-6px">{{Auth::user()->name}}</span>
-                                  <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="#icon_user" />
-                                  </svg>
-                                </a>
-                              </div>
-                            @endif --}}
+                  
 
                             @guest
 
@@ -142,7 +140,7 @@
                             @else   
                             <a class="header-tools__item" href="{{ Auth::user()->role=='admin' ? route('admin.index') : route('user.index')}}">
                                 {{-- <span class="pr-6px">{{Auth::user()->name}}</span> --}}
-                            <button class="dropdown-item" type="button">Sign up</button>
+                            <button class="dropdown-item" type="button">Dashboard</button>
                         </a>
                             @endif
                         </div>
